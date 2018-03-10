@@ -1,4 +1,7 @@
 class ParseError(Exception):
+    """
+    Custom Exception for Parsing Error
+    """
 
     def __init__(self, value):
         self.value = value

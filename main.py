@@ -6,6 +6,11 @@ from Analyser.heart_rate import get_heart_rate_data, compute_mean_heart_rate, fi
 
 
 def parse_date():
+    """
+    This function ask the user to write the date for the capture.
+    Will loop until good answer is given
+    :return: the date as a datetime object
+    """
     print("Type Date of the recording start. Format :  \"dd/mm/yy  HH:MM\"")
     raw = input()
     try:
@@ -17,6 +22,15 @@ def parse_date():
 
 
 def main():
+    """
+    Entry point
+    Will call as a script all the program functionality
+    - Ask the path for the CSV
+    - Ask the date
+    - Parse the CSV
+    - Look for defined tags
+    - Compute heart-rate values (avg, min, max)
+    """
     print(
         """
 Hello
