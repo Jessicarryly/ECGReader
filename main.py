@@ -10,7 +10,7 @@ def parse_date():
     raw = input()
     try:
         date = datetime.strptime(raw, "%d/%m/%y %H:%M")
-    except ValueError as instance :
+    except ValueError as instance:
         print("Incorrect time/date >" + str(instance))
         return parse_date()
     return date
@@ -41,11 +41,11 @@ Please provide the path of the EGC CSV file :
     mean_rate = compute_mean_heart_rate(rate_data)
     print("The mean heart rate of the record is " + str(mean_rate) + " QRS complexes appearance / minute\n")
 
-    min_max = find_min_max(rate_data, date)
+    min_max = find_min_max(rate_data)
     date_min = date + timedelta(minutes=min_max["max_time"])
     date_max = date + timedelta(minutes=min_max["min_time"])
-    print("The minimum heart rate was " + str(min_max["min"]) + " and occured the " + str(date_min))
-    print("The maximum heart rate was " + str(min_max["max"]) + " and occured the " + str(date_max))
+    print("The minimum heart rate was " + str(min_max["min"]) + " and occurred the " + str(date_min))
+    print("The maximum heart rate was " + str(min_max["max"]) + " and occurred the " + str(date_max))
 
 if __name__ == "__main__":
     main()

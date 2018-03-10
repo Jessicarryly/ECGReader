@@ -12,7 +12,7 @@ def compute_mean_heart_rate(rate_data):
     return int(sum(rate_data) / len(rate_data))
 
 
-def find_min_max(rate_data, date):
+def find_min_max(rate_data):
     current_min = rate_data[0]
     current_time_min = 0
     current_max = rate_data[0]

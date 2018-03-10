@@ -16,5 +16,5 @@ def display_search_result(results):
     for wave_types, tags in results.items():
         print("For the wave type " + wave_types + " :")
         for tag, occurrences in tags.items():
-            print("     There is " + str(occurrences) + " occurences tagged \'" + tag + "\'")
+            print("     There is " + str(occurrences) + " occurrences tagged \'" + tag + "\'")
     print("\n")
