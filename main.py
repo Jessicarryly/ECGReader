@@ -1,8 +1,8 @@
-from datetime import datetime
+from datetime import datetime, timedelta
 from Parsing import ecg_parser
 from Parsing.ParseError import ParseError
 from Analyser.tag_searching import search, display_search_result
-from Analyser.heart_rate import get_heart_rate_data, compute_mean_heart_rate
+from Analyser.heart_rate import get_heart_rate_data, compute_mean_heart_rate, find_min_max
 
 
 def parse_date():
@@ -39,8 +39,13 @@ Please provide the path of the EGC CSV file :
 
     rate_data = get_heart_rate_data(entries)
     mean_rate = compute_mean_heart_rate(rate_data)
-    print("The mean heart rate of the record is " + str(mean_rate) + " QRS complexes appearance / minute")
+    print("The mean heart rate of the record is " + str(mean_rate) + " QRS complexes appearance / minute\n")
 
+    min_max = find_min_max(rate_data, date)
+    date_min = date + timedelta(minutes=min_max["max_time"])
+    date_max = date + timedelta(minutes=min_max["min_time"])
+    print("The minimum heart rate was " + str(min_max["min"]) + " and occured the " + str(date_min))
+    print("The maximum heart rate was " + str(min_max["max"]) + " and occured the " + str(date_max))
 
 if __name__ == "__main__":
     main()
